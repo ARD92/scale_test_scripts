@@ -6,11 +6,13 @@ from netaddr import *
 parser = argparse.ArgumentParser()
 parser.add_argument('-count', action='store',dest='CNT', help='Count of /32 prefixes')
 parser.add_argument('-ip', action='store',dest='IP', help='subnet. a  /32 prefix for loopback would be allocated. Example. 1.1.1.0/24')
+parser.add_argument('-rd', action='store',dest='RD', help='beginning range of RD. example 1000. will return 1000:x ')
+parser.add_argument('-rt', action='store',dest='RT', help='beginning range of RT, example 1000, will return target:1000:x')
 args=parser.parse_args()
 
 IPV4_PL_ADDRESS = args.IP
-VRF_RT_RANGE = "1000:"
-VRF_RD_RANGE = "1001:"
+VRF_RT_RANGE = args.RT+":"
+VRF_RD_RANGE = args.RD+":"
 SCALE_CONFIG = [] 
 
 
