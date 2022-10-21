@@ -25,3 +25,12 @@ set routing-instances VPN-1 vrf-target target:1000:1
 set routing-instances VPN-1 vrf-table-label
 < -------- snipped --------- >
 ```
+
+Once the file has been generated, one can program the node using the script `program_Set_commands.py`
+
+Example
+```
+python3 program_set_commands.py -ip 192.167.1.10 -u root -p juniper123 -f <filename>
+```
+
+If you would like to program the ephemeral DB then use the flag `-edb true`
