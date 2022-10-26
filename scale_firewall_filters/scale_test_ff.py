@@ -41,11 +41,13 @@ def programScaledFilters(nf, nt, sip, dip):
             cmd_sp = "set firewall family inet filter FF_{} term TERM_{} from source-port {}".format(numfilter,numterms,sports)
             cmd_dp = "set firewall family inet filter FF_{} term TERM_{} from destination-port {}".format(numfilter,numterms,dports)
             cmd_proto = "set firewall family inet filter FF_{} term TERM_{} from protocol {}".format(numfilter,numterms,proto)
+            cmd_action = "set firewall family inet filter FF_{} term TERM_{} then accept".format(numfilter,numterms)
             flist.append(cmd_sip)
             flist.append(cmd_dip)
             flist.append(cmd_sp)
             flist.append(cmd_dp)
             flist.append(cmd_proto)
+            flist.append(cmd_action)
     return flist
 
 def main():
